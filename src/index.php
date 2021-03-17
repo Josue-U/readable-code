@@ -37,7 +37,7 @@ function calculePrice($pizzaType)
 {
     $priceType = '';
 
-    if ($pizzaType == 'marguerita') {
+    if ($pizzaType == 'margherita') {
 
         $priceType = 5;
 
@@ -51,7 +51,7 @@ function calculePrice($pizzaType)
         $priceType = 10;
     }
 
-    elseif ($pizzaType == 'hawai') {
+    elseif ($pizzaType == 'hawaii') {
 
         throw new Exception('Computer says hell no');
     }
@@ -64,7 +64,7 @@ function billPizza()
 {
     
     orderPizza('calzone', 'nico');
-    orderPizza('marguerita', 'nick');
+    orderPizza('margherita', 'nick');
     orderPizza('golden', 'students');
 }
 
