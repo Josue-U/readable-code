@@ -62,7 +62,7 @@ function calculePrice($pizzaType)
     return $priceType;
 }
 
-function billPizza()
+function printOrder()
 {
     
     orderPizza('calzone', 'nico');
@@ -70,4 +70,4 @@ function billPizza()
     orderPizza('golden', 'students');
 }
 
-echo billPizza();
+echo printOrder();
