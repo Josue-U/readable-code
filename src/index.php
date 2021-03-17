@@ -22,8 +22,11 @@ function orderPizza($orderType, $client)
         $address = 'BeCode office';
     }
 
-    $toPrint =  'A '.$orderType .' pizza should be sent to ' . $client . ". <br>The address: {$address}" 
-    .'<br>'.'The bill is '. $price. '€'.  '.<br>'.'Order finished <br><br>';
+    $toPrint = 
+    
+    'A '. $orderType .' pizza should be sent to ' . $client . 
+    '<br>The address: '. $address . '<br>'.'The bill is '. $price . '€'. 
+    '<br>' . 'Order finished <br><br>';
 
     echo $toPrint;
     
