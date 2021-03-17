@@ -1,82 +1,68 @@
 <?php
 
-
-function orderPizza($pizzaType, $client)
+function orderPizza($orderType, $client)
 {
 
-    $type = $pizzaType;
     echo 'Creating new order... <br>';
-    $toPrint = 'A ';
-    $toPrint .= $pizzaType;
-    $price= calculePrice($type);
 
-    $address = 'unknown';
+    $price= calculePrice($orderType);
+
+    $address = 'Unknown';
+
     if ($client == 'koen') {
+
         $address = 'a peniche in Liège';
+
     } elseif ($client == 'nico') {
+
         $address = 'somewhere in Belgium';
+
     } elseif ($client == 'students') {
+
         $address = 'BeCode office';
     }
 
-    $toPrint .=   ' pizza should be sent to ' . $client . ". <br>The address: {$address}.";
+    $toPrint =  'A '.$orderType .' pizza should be sent to ' . $client . ". <br>The address: {$address}" 
+    .'<br>'.'The bill is €' . $price. '.<br>'.'Order finished <br><br>';
+
     echo $toPrint;
-    echo '<br>';
-    echo 'The bill is €' . $price. '.<br>';
-
-
-
-
-    echo "Order finished.<br><br>";
+    
 }
 
-function total_price($price)
+
+function calculePrice($pizzaType)
 {
-    return $price;
-}
+    $priceType = '';
 
-function test($priceType)
-{
-    echo "Test: type is {$priceType}. <br>";
-}
+    if ($pizzaType == 'marguerita') {
 
-function calculePrice($priceType)
-{
-    $costType = 'unknown';
+        $priceType = 5;
 
-    if ($priceType == 'marguerita') {
-        $costType = 5;
-    } else {
-        if ($priceType == 'golden') {
-            $costType = 100;
-        }
+    } elseif ($pizzaType == 'golden') {
 
-        if ($priceType == 'calzone') {
-            $costType = 10;
-        }
-
-        if ($priceType == 'hawai') {
-            throw new Exception('Computer says hell no');
-        }
+        $priceType = 100;
     }
 
-    return $costType;
+    elseif ($pizzaType == 'calzone') {
+
+        $priceType = 10;
+    }
+
+    elseif ($pizzaType == 'hawai') {
+
+        throw new Exception('Computer says hell no');
+    }
+    
+
+    return $priceType;
 }
 
 function billPizza()
 {
-    $bill = 0;
+    
     orderPizza('calzone', 'nico');
     orderPizza('marguerita', 'nick');
-
     orderPizza('golden', 'students');
 }
 
-function delivery($send)
-{
-    if ($send) {
-        billPizza();
-    }
-}
-
-delivery(true);
+echo billPizza();
